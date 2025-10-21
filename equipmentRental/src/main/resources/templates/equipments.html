@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipment List</title>
+    <style>
+        .equipment-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+        }
+        .equipment-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+<h1>Equipment List</h1>
+
+<div th:each="equip : ${equipments}" class="equipment-card">
+    <h3 th:text="${equip.name}"></h3>
+    <p th:text="${equip.description}"></p>
+    <p>Price: <span th:text="${equip.rentalPrice}"></span></p>
+    <p>Available: <span th:text="${equip.quantityAvailable}"></span></p>
+    <img th:src="${equip.img}" alt="Equipment Image"/>
+</div>
+
+</body>
+</html>
